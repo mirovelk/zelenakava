@@ -1,0 +1,270 @@
+/* all app scss styles here */
+
+@import "compass/css3";
+@import "compass/utilities";
+@import "vendor/animate.css";
+
+$primary: $primary-color;
+$primary-light: #eaece5;
+$coffee: #4a2c2a;
+
+.bubble {
+    position: relative;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.bubble:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 0 15px 15px;
+    border-color: $primary-light transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    margin-left: -15px;
+    top: -15px;
+    left: 50%;
+}
+
+@mixin circle($width, $color) {
+    width: $width;
+    height: $width;
+    background: $color;
+    -webkit-border-radius: $width / 2;
+    -moz-border-radius: $width / 2;
+    border-radius: $width / 2;
+    z-index: 9999;
+}
+
+@mixin coffee-list($fontSizeSmall, $bulletSizeSmall, $fontSizeBig, $bulletSizeBig, $heightBig) {
+    background: url("../images/coffe-bean.svg") 0 -5px no-repeat;
+    padding-left: 3rem;
+    @include background-size($bulletSizeSmall);
+    line-height: $fontSizeSmall * 1.7;
+    font-size: $fontSizeSmall;
+    list-style: none;
+    @media #{$medium-up} {
+        line-height: $fontSizeSmall * 1.7;
+        font-size: $fontSizeBig;
+        padding-left: $bulletSizeBig * 1.3;
+        @include background-size($bulletSizeBig);
+    }
+    @media #{$large-up} {
+        height: $heightBig;
+    }
+}
+
+html, body {
+    font-family: "Open Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Roboto Slab", serif;
+    color: $primary;
+    font-weight: 700;
+}
+
+h2, h3, h4, h5, h6 {
+    margin-bottom: 2rem;
+}
+
+.button > .fa {
+    margin-left: .3rem;
+    font-size: 150%;
+    color: white;
+    position: relative;
+    top: 3px;
+}
+
+#intro {
+    display: block;
+    background: url("../images/intro.png") top center;
+    background-size: cover;
+    min-height: 100%;
+    h1 {
+        font-family: "Roboto Slab", serif;
+        text-transform: uppercase;
+        letter-spacing: 1rem;
+        color: rgba(255, 255, 255, 0.9);
+        @include text-shadow($coffee 4px 4px 0);
+        margin-bottom: 1.2rem;
+        margin-top: 5rem;
+        font-size: 3.5rem;
+        line-height: 4rem;
+        span {
+            display: block;
+        }
+        #nadpis2 {
+            font-size: 6rem;
+            line-height: 6.5rem;
+        }
+        @media #{$medium-up} {
+            font-size: 6rem;
+            line-height: 6.5rem;
+            margin-top: 5rem;
+            #nadpis2 {
+                font-size: 9.5rem;
+                line-height: 10.5rem;
+            }
+        }
+        @media #{$large-up} {
+            margin-top: 8rem;
+            padding-top: 1rem;
+            span {
+                text-align: right;
+            }
+            #nadpis1 {
+                font-size: 6.8rem;
+            }
+            #nadpis2 {
+                font-size: 10.7rem;
+                line-height: 12rem;
+            }
+        }
+    }
+    p {
+        background: rgba(255, 255, 255, 0.45);
+        color: $primary;
+        padding: 1.5rem;
+        text-transform: uppercase;
+        font-size: 1.3rem;
+        margin-bottom: 1.2rem;
+        @media #{$medium-up} {
+            font-size: 1.8rem;
+        }
+    }
+    .button {
+        text-transform: uppercase;
+        white-space: nowrap;
+        font-size: 120%;
+        @media #{$medium-up} {
+            font-size: 150%;
+        }
+    }
+}
+
+#mainNav {
+    a {
+        font-family: "Bree Serif", serif;
+        font-size: 1.3em;
+        text-transform: uppercase;
+    }
+    img {
+        width: 50px;
+        height: 50px;
+        margin: 0 10px 8px 0;
+    }
+}
+
+#uvod {
+    margin-top: 4rem;
+    blockquote {
+        font-size: 1.3rem;
+        @media #{$medium-up} {
+            font-size: 1.6rem;
+        }
+        @media #{$large-up} {
+            font-size: 2rem;
+        }
+    }
+    #quoteImg {
+        max-height: 250px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+#kyselina {
+    background: $primary-light url("../images/kyselina.png") top left no-repeat;
+    @include background-size(auto 100%);
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    li {
+        @include coffee-list(1.2rem, 35px, 1.4rem, 50px, 80px);
+    }
+}
+
+#specialiste {
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+    img {
+        display: block;
+        margin-bottom: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+#pribehy {
+    h3 {
+        text-align: center;
+        //border-bottom: 1px solid rgba($primary, 0.3);
+        font-size: 2rem;
+        line-height: 2.5rem;
+        //font-family: "Open Sans", sans-serif;
+   
+    }
+    .vaha {
+        div {
+            display: block;
+            margin: -15px 0 -15px 0;
+            padding-top: 8px;
+            text-transform: uppercase;
+            color: $white;
+            span {
+                display: block;
+                font-size: 1.3rem;
+                font-family: "Roboto Slab";
+                font-weight: 700;
+                line-height: 1.3rem;
+            }
+        }
+        .pred div {
+            @include circle(70px, $coffee);
+            margin-left: 5px;
+        }
+        .po div {
+            float: right;
+            @include circle(70px, $primary);
+            margin-right: 5px;
+        }
+    }
+    .predPoImg {
+        margin: 0 auto;
+        img {
+            width: 100%;
+        }
+    }
+    p {
+        padding: 1.5rem 1.5rem;
+        margin: 2rem auto;
+        background: $primary-light;
+        position: relative;
+        z-index: -9999;
+    }
+}
+
+#akce {
+    .bullet-item img {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+#objednat {
+    li {
+        @include coffee-list(1rem, 30px, 1.1rem, 40px, auto);
+        padding-bottom: 1rem;
+    }
+}
+
+footer {
+    margin-top: 3rem;
+    font-size: .4rem;
+    color: #aeaeae;
+}
